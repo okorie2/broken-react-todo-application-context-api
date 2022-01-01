@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import * as React from 'react';
 import { TodoForm } from './components/todo-form';
 import { TodoList } from './components/todo-list';
@@ -39,11 +40,11 @@ const todosTemplate = [
 ];
 
 export const App = () => {
-  const [todos, setTodos] = React.useState([]);
+  const [todos, setTodos] = React.useState(todosTemplate);
 
   return (
     <div className="root">
-      <TodosContext.Provider value={{ todos }}>
+      <TodosContext.Provider value={{ todos, setTodos }}>
         <TodoList />
         <TodoResults />
         <TodoForm />

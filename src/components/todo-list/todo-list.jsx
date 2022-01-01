@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import * as React from 'react';
 import { Checkbox } from '../checkbox';
 import { TodosContext } from '../../todo-context';
@@ -5,7 +6,8 @@ import './todo-list.scss';
 
 export const TodoList = () => {
   const { todos, setTodos } = React.useContext(TodosContext);
-
+ 
+console.log(todos, 'array')
   const handleDelete = (id) => {
     // Fix an ability to delete task
   };

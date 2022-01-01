@@ -1,1 +1,2 @@
-export { TodoList } from './todo-list';
+/* eslint-disable */
+export { TodoList } from "./todo-list";
