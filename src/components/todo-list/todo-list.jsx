@@ -8,19 +8,35 @@ export const TodoList = () => {
   const { todos, setTodos } = React.useContext(TodosContext);
  
 console.log(todos, 'array')
+
   const handleDelete = (id) => {
+    console.log(id)
+   setTodos( todos.filter((fil)=>{
+     
+      return  fil.id != id
+    }))
     // Fix an ability to delete task
   };
 
   const toggleCheck = (id) => {
-    // Fix an ability to toggle task
+    setTodos(todos.map((el) => {
+      if (el.id === id) {
+        return {
+          ...el,
+          checked: !el.checked,
+        };
+      }
+  
+      // console.log(checked, 'el')
+      return el;
+    }));
   };
 
-  const handleKeyUp = (e, id) => {
-    if (e.keyCode === 13) {
-      toggleCheck(id);
-    }
-  };
+  // const handleKeyUp = (e, id) => {
+  //   if (e.keyCode === 13) {
+  //     toggleCheck(id);
+  //   }
+  // };
 
   return (
     <div className="todo-list">
@@ -33,7 +49,7 @@ console.log(todos, 'array')
               label={todoItem.label}
               checked={todoItem.checked}
               onClick={() => toggleCheck(todoItem.id)}
-              onKeyUp={(e) => handleKeyUp(e, todoItem.id)}
+              // onKeyUp={(e) => handleKeyUp(e, todoItem.id)}
               onDelete={() => handleDelete(todoItem.id)}
             />
           ))}
